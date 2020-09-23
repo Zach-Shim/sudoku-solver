@@ -1,4 +1,4 @@
-# sudoku-solver
+# Sudoku Solver in Java
 
 This program utilizes backtracking and recursion to solve any permutation of an unsolved sudoku table.
 
