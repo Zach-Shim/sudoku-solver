@@ -14,23 +14,11 @@ class SudokuSolver {
                                {'.', '9', '.', '.', '4', '.', '1', '.', '.'},
                                {'1', '.', '.', '3', '.', '6', '.', '.', '.'},
                                {'6', '.', '3', '.', '.', '9', '7', '2', '.'}}; 
-        print(testPuzzle);
+        displayBoard(testPuzzle);
         boolean isValid = check(testPuzzle);      // check to see if puzzle is valid
         if(!isValid) System.out.println("INVALID BOARD");
         solve(testPuzzle);      // solves the sudoku puzzle and prints it out
     }
-
-    public static void print(char[][] puzzle) {
-        // print testPuzzle - for debugging - should be made into a printPuzzle method
-        for (int row = 0; row < puzzle.length; row++) {
-            for (int col = 0; col < puzzle[row].length; col++) {
-                System.out.print(puzzle[row][col] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-
 
     // check if a given sudoku puzzle board is valid or not
     // return true if valid; otherwise return false
@@ -66,7 +54,7 @@ class SudokuSolver {
     }
 
     // check if a specified row in a given sudoku board is valid 
-    private static boolean rowCheck(char[][] puzzle, int row) {
+    public static boolean rowCheck(char[][] puzzle, int row) {
         //check to make sure each element in row has only has '.' or 1-9
         Set<Character> set = new HashSet<Character>();
         for(char num: puzzle[row]) {
@@ -84,7 +72,7 @@ class SudokuSolver {
     }
 
     // check if a specified column in a given sudoku board is valid 
-    private static boolean columnCheck(char[][] puzzle, int column) {
+    public static boolean columnCheck(char[][] puzzle, int column) {
         //check to make sure each element in column has only has '.' or 1-9
         Set<Character> set = new HashSet<Character>();
         for(int i = 0; i < 9; i++) {
@@ -102,7 +90,7 @@ class SudokuSolver {
     }
 
     // check if a specified 3x3 square in a given sudoku board is valid 
-    private static boolean squareCheck(char[][] puzzle, int row, int col) {
+    public static boolean squareCheck(char[][] puzzle, int row, int col) {
         char boardIndex;
         Set<Character> set = new HashSet<Character>();
         for(int i = 0; i < 3; i++) {
